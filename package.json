@@ -1,0 +1,13 @@
+{
+  "name": "shiguang-forum",
+  "version": "1.0.0",
+  "description": "拾光集：零依赖全栈论坛（公开注册、友好讨论、付费内容、会员、广告投放）",
+  "main": "server.js",
+  "private": true,
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": "24.x"
+  }
+}

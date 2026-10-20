@@ -1,0 +1,21 @@
+# Render Blueprint — 一键把本仓库部署为免费 Web 服务
+# 部署成功后自动获得 https://<service>.onrender.com 免费二级域名 + HTTPS
+# 完整步骤见 deploy.md「快速上线」
+services:
+  - type: web
+    name: forum
+    runtime: node
+    plan: free
+    autoDeploy: true
+    startCommand: node server.js
+    healthCheckPath: /api/health
+    envVars:
+      - key: PAY_MODE
+        value: sandbox
+      - key: USD_CNY_RATE
+        value: "7.1"
+      # ⚠️ 部署后【必须】改成你的真实地址（Render → Service → Environment → BASE_URL，保存即自动重部署）。
+      # 填错或留空 localhost 会导致：Stripe 支付回跳失效、SEO canonical/sitemap/robots 指向错误。
+      # 例：https://forum-<你的服务名>.onrender.com
+      - key: BASE_URL
+        value: https://forum.onrender.com

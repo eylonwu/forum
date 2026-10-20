@@ -1,0 +1,13 @@
+# 依赖与密钥
+node_modules/
+.env
+
+# SQLite 数据库（本地自动生成，含演示数据；线上数据通过 Render 持久磁盘/备份保留）
+forum.db
+forum.db-wal
+forum.db-shm
+
+# 日志与系统文件
+*.log
+.DS_Store
+Thumbs.db
