@@ -1,0 +1,31 @@
+# 拾光集论坛 · systemd 服务单元
+# 安装位置：/etc/systemd/system/forum.service（由 deploy/setup.sh 自动安装）
+
+[Unit]
+Description=拾光集论坛服务 (forum)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=forum
+Group=forum
+WorkingDirectory=/srv/forum
+# 零依赖：直接用系统 Node 运行，无需 node_modules
+ExecStart=/usr/bin/node server.js
+Restart=always
+RestartSec=3
+# 支付密钥通过 .env 注入（与 config.js 读取逻辑一致）
+EnvironmentFile=/srv/forum/.env
+
+# ---- 安全加固 ----
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectHome=true
+ProtectSystem=full
+# 仅允许写应用目录（SQLite 数据库在 forum.db）
+ReadWritePaths=/srv/forum
+LimitNOFILE=65536
+
+[Install]
+WantedBy=multi-user.target
