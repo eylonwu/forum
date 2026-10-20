@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>拾光集 · 友好讨论社区</title>
+  <meta name="description" content="拾光集：一个温和、认真的中文讨论社区。支持付费内容、会员与广告投放。" />
+  <link rel="stylesheet" href="/style.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E☀️%3C/text%3E%3C/svg%3E" />
+</head>
+<body>
+  <div id="toast-root" aria-live="polite"></div>
+  <div id="modal-root"></div>
+
+  <!-- 顶部导航 -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#/" class="brand">
+        <span class="brand-mark">☀️</span>
+        <span class="brand-name">拾光集</span>
+      </a>
+
+      <nav class="nav-mid">
+        <a href="#/" data-nav="home">广场</a>
+        <a href="#/new" data-nav="new" class="nav-primary-link">发帖</a>
+        <a href="#/ad-slots" data-nav="adslots">广告位</a>
+        <a href="#/advertise" data-nav="advertise">广告主面板</a>
+        <a href="#/admin" data-nav="admin" id="admin-nav" class="hidden">管理后台</a>
+      </nav>
+
+      <div id="header-auth" class="header-auth">
+        <!-- 由 JS 渲染登录态 -->
+      </div>
+    </div>
+  </header>
+
+  <!-- 主内容 -->
+  <main id="app" class="container main-wrap" tabindex="-1"></main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <span>拾光集 · 一个温和认真的讨论社区</span>
+      <span class="foot-hint">会员与付费帖收入用于维持服务器</span>
+      <!-- 备案后替换为真实备案号，并保留 beian.miit.gov.cn 链接；公安备案号可另起一行 -->
+      <span id="foot-icp"><a href="https://beian.miit.gov.cn" target="_blank" rel="noopener">ICP备案号：待填写</a></span>
+    </div>
+  </footer>
+
+  <script src="/app.js"></script>
+</body>
+</html>
